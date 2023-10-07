@@ -1,0 +1,17 @@
+button{
+    background-color: red;
+    color: white;
+    border: none;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    margin: 20px 600px;
+}
+.categories{
+    display: flex;
+    flex-direction: row;
+    margin: 30px 200px;
+}
+.cs{
+    margin-left: 20px;
+}
