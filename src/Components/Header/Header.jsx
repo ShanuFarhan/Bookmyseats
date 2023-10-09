@@ -1,10 +1,8 @@
 
-import './Header.css';
 import SeatLayout from '../SeatLayout/SeatLayout';
 import { useState } from "react"
 import { PiArmchairLight } from "react-icons/pi"
-
-
+import './Header.css';
 
 function Header() {
   const [ticketType, setTicketType] = useState('');
@@ -21,9 +19,7 @@ function Header() {
   return (
     <div className='main_container'>
       <div className='main_container_inner'>
-
         <h1>Book My Seat</h1>
-
         <div className="App">
           <div className='left'>
             <div className='dropdown'>
@@ -32,10 +28,10 @@ function Header() {
               <select style={{borderRadius:'10px'}} id="tickettype" value={ticketType} onChange={handleTicket}>
               <option value="">Ticket Type</option>
                 <option  value="Standard">Standard</option>
-                <option value="Premium">Premium[E,F]</option>
+                <option value="Premium">Premium[A,B]</option>
               </select>
 
-              <label style={{fontWeight:600}}  htmlFor="qty" >Ticket Quantity:</label>
+              <label style={{fontWeight:600}}  htmlFor="qty" >Quantity:</label>
               <select style={{borderRadius:'10px'}} id="qty" value={quanityOfTicker} onChange={handleQuality}>
                 <option value="">Qnty</option>
                 <option value="1">1</option>
@@ -69,10 +65,6 @@ function Header() {
                 <li>
                   <PiArmchairLight className='yourselection size' />
                   <p>Your Selection</p></li>
-
-                  {/* <li>
-                  <TbArmchair className='premiumcolor size ' />
-                  <p>Premium</p></li> */}
 
               </ul>
             </div>

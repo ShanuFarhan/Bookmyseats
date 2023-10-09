@@ -23,8 +23,7 @@ function SeatLayout(props) {
         { id: data, isZero: data, isSelected: false, isBooked: false, type: index>1? "Standard" :"Premium" }))));
     const [selectedSeats, setSelectedSeats] = useState(seats.flat().filter(item => item.isSelected).length)
     
-    
-    function resetSelection(arr) {
+    function Selection(arr) {
         for (let i = 0; i < arr.length; i++) {
             for (let j = 0; j < arr[i].length; j++) {
                 arr[i][j].isSelected = false;
@@ -34,14 +33,13 @@ function SeatLayout(props) {
     }
     
     const bookHandler = (seatId,seat) => {
-        let unSelectPrev = resetSelection(seats);
-        
+        let unSelectPrev = Selection(seats);
         if (ticketNumber === '') {
-            toast.error("Please select ticket quantity");
+            toast.error("Select ticket quantity");
             return;
         }
         if(seat.type!==props.type){
-            toast.info("Please select ticket of type " + props.type)
+            toast.info("Select ticket of type " + props.type)
             return
         }
         
@@ -76,9 +74,9 @@ function SeatLayout(props) {
         setSelectedSeats(selectedSeats + 1);
     };
     
-    const proceedHandler = () => {
+    const handleBooking = () => {
         if (ticketNumber === ''){
-            toast.error("Please select ticket quantity");
+            toast.error("Select ticket quantity");
             return
         }
         setSeats(seats.map(item => item.map(data => {
@@ -89,7 +87,7 @@ function SeatLayout(props) {
             }
 
         })))
-        toast.success(`you have booked ${ticketNumber} ${props.type} tikets.. !`)
+        toast.success(`Booked Successfully ${ticketNumber} ${props.type}`)
         setSelectedSeats(0)
     }
     return (<div className="container">
@@ -99,7 +97,7 @@ function SeatLayout(props) {
                     <div key={index1} style={{marginLeft:"70px", display: "flex" ,width:"100%"}}>
                         <div style={{ width: "40px",marginTop:"15px" }}>
                             
-                            {String.fromCharCode(69 + index1)}
+                            {String.fromCharCode(65 + index1)}
                         </div>
                         {row.map((seat, index2) => (
                             <><p key={index2}></p>
@@ -117,10 +115,10 @@ function SeatLayout(props) {
                 );
             })}
         
-        <button className="btn" onClick={proceedHandler}>PROCEED</button>
+        <button className="btn" onClick={handleBooking}>PROCEED</button>
         <ToastContainer
             position="top-center"
-            autoClose={1000}
+            autoClose={2000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
